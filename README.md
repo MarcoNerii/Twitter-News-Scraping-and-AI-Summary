@@ -11,7 +11,7 @@ This project scrapes tweets from [FinancialJuice](https://x.com/financialjuice) 
 ## Setup
 ```bash
 git clone https://github.com/MarcoNerii/Twitter-News-Scraping-and-AI-Summary.git
-cd financialjuice-scraper
+cd Twitter-News-Scraping-and-AI-Summary
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 python -m playwright install firefox chromium
@@ -25,7 +25,7 @@ x_cookies.json
 ⚠️ This file is in `.gitignore` → **never commit it**.
 
 ## Usage
-1. Open the notebook `scrape_and_summarize.ipynb`.
+1. Open the notebook `main.ipynb`.
 2. Run the cells to:
    - Scrape tweets into `financialjuice_last_hours.txt`
    - Summarize them with Gemini
