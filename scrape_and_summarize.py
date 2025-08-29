@@ -27,13 +27,20 @@ UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
 MODEL_NAME = "gemini-1.5-flash"         # or "gemini-1.5-pro"
 
 CUSTOM_PROMPT = (
-    "You are drafting a clear, trader‑ready summary. Be concise. "
-    "Group by **Macro Area** (in this order: Europe, UK, North America, Asia) and then **Countries**. "
-    "Avoid repetition. Prefer bullet points over prose; keep each bullet short and factual. "
-    "If there is news relevant for Europe in general, or many countries, place it under **Europe** without creating extra sections. "
-    "Use timestamps to resolve conflicts: if a newer tweet updates an older one, only keep the updated fact. "
-    "If a data release includes estimates/priors vs actuals, show the comparison succinctly. "
-    "Output must be valid Markdown."
+    """ Summarieze the following headlines into a concise Daily Macro & Markets Recap.
+    Divide the summary into clear sections by region and country, using headings and bullet points.
+    Group very very related news toghether and keep only the most relevant news for financial markets.
+    Keep the summary within 2 pages maximum, and max 5 bullet points per country.
+    Use the following sections, but remove those without relevant news:
+    1. Euro Area (Germany, France, Italy, Spain, Greece, Portugal, Belgium, Netherlands, Austria, Ireland, Finland)
+    2. Nordics (Sweden, Norway, Denmark, not Switzerland)
+    3. United Kingdom
+    4. Switzerland
+    5. North America (only United States and Canada)
+    6. APAC (only China, Japan, Australia, and New Zealand)
+    Make a subsection for each country for sections including many countries, and keep max 5 bullet points per country.
+    Use a headline line for each country (e.g., United States – Housing soft, Fed bias tilts dovish).
+    Divide every section with a horizontal line (---)."""
 )
 
 # ==========================================================
@@ -239,5 +246,5 @@ async def main():
 
 if __name__ == "__main__":
     # If you need to create cookies first, uncomment this line once:
-    # asyncio.run(login_and_save_cookies())
+    asyncio.run(login_and_save_cookies())
     asyncio.run(main())
